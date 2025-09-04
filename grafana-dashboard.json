@@ -1,0 +1,206 @@
+{
+    "id": null,
+    "uid": "mpl-sports-perf",
+    "title": "MPL Sports - Performance Testing Dashboard",
+    "timezone": "browser",
+    "schemaVersion": 36,
+    "version": 1,
+    "refresh": "10s",
+    "panels": [
+        {
+            "type": "timeseries",
+            "title": "Response Time (ms)",
+            "targets": [
+                {
+                    "measurement": "response_time",
+                    "groupBy": [
+                        {
+                            "type": "time",
+                            "params": [
+                                "1m"
+                            ]
+                        }
+                    ],
+                    "select": [
+                        [
+                            {
+                                "type": "field",
+                                "params": [
+                                    "value"
+                                ]
+                            },
+                            {
+                                "type": "mean"
+                            }
+                        ]
+                    ],
+                    "tags": []
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ms"
+                }
+            },
+            "gridPos": {
+                "x": 0,
+                "y": 0,
+                "w": 12,
+                "h": 6
+            }
+        },
+        {
+            "type": "timeseries",
+            "title": "Transactions Per Second (TPS)",
+            "targets": [
+                {
+                    "measurement": "transactions",
+                    "groupBy": [
+                        {
+                            "type": "time",
+                            "params": [
+                                "1m"
+                            ]
+                        }
+                    ],
+                    "select": [
+                        [
+                            {
+                                "type": "field",
+                                "params": [
+                                    "count"
+                                ]
+                            },
+                            {
+                                "type": "mean"
+                            }
+                        ]
+                    ],
+                    "tags": []
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ops"
+                }
+            },
+            "gridPos": {
+                "x": 0,
+                "y": 6,
+                "w": 12,
+                "h": 6
+            }
+        },
+        {
+            "type": "timeseries",
+            "title": "Error Rate (%)",
+            "targets": [
+                {
+                    "measurement": "errors",
+                    "groupBy": [
+                        {
+                            "type": "time",
+                            "params": [
+                                "1m"
+                            ]
+                        }
+                    ],
+                    "select": [
+                        [
+                            {
+                                "type": "field",
+                                "params": [
+                                    "count"
+                                ]
+                            },
+                            {
+                                "type": "mean"
+                            }
+                        ]
+                    ],
+                    "tags": []
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "percent"
+                }
+            },
+            "gridPos": {
+                "x": 0,
+                "y": 12,
+                "w": 12,
+                "h": 6
+            }
+        },
+        {
+            "type": "stat",
+            "title": "Active Users",
+            "targets": [
+                {
+                    "measurement": "users",
+                    "select": [
+                        [
+                            {
+                                "type": "field",
+                                "params": [
+                                    "count"
+                                ]
+                            },
+                            {
+                                "type": "last"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "short"
+                }
+            },
+            "gridPos": {
+                "x": 0,
+                "y": 18,
+                "w": 6,
+                "h": 6
+            }
+        },
+        {
+            "type": "stat",
+            "title": "95th Percentile Response Time",
+            "targets": [
+                {
+                    "measurement": "response_time",
+                    "select": [
+                        [
+                            {
+                                "type": "field",
+                                "params": [
+                                    "value"
+                                ]
+                            },
+                            {
+                                "type": "percentiles",
+                                "params": [
+                                    95
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "fieldConfig": {
+                "defaults": {
+                    "unit": "ms"
+                }
+            },
+            "gridPos": {
+                "x": 6,
+                "y": 18,
+                "w": 6,
+                "h": 6
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+# Response times (in ms) for different requests
+response_time,request=login value=180 1662268800000000000
+response_time,request=login value=210 1662268860000000000
+response_time,request=browse value=320 1662268800000000000
+response_time,request=browse value=350 1662268860000000000
+response_time,request=add_to_cart value=400 1662268800000000000
+response_time,request=add_to_cart value=420 1662268860000000000
+response_time,request=checkout value=500 1662268800000000000
+response_time,request=checkout value=540 1662268860000000000
+
+# Transactions per second (TPS)
+transactions type=all count=25 1662268800000000000
+transactions type=all count=28 1662268860000000000
+transactions type=all count=30 1662268920000000000
+
+# Errors
+errors type=login count=1 1662268800000000000
+errors type=checkout count=2 1662268860000000000
+
+# Active Users
+users type=concurrent count=50 1662268800000000000
+users type=concurrent count=55 1662268860000000000
+users type=concurrent count=60 1662268920000000000
